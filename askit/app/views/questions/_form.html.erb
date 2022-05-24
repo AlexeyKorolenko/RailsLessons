@@ -1,0 +1,19 @@
+<!--создаем форму вопроса-->
+<%= form_with  model: @question do |f| %>
+  <div>
+    <%= f.label :title %>
+    <!--    text_field - маленькое поле для ввода-->
+    <%= f.text_field :title %>
+    <!--    , required: true, minlenght: 2, placeholder: "Title"-->
+  </div>
+
+  <div>
+    <%= f.label :body %>
+    <!--    text_area - большое поле для ввода-->
+    <!--    required: true - браузер проверяет заполненость поля-->
+    <%= f.text_area :body%>
+    <!--    , required: true, minlenght: 2-->
+  </div>
+
+  <%= f.submit "Submit question!" %>
+<% end %>
