@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new

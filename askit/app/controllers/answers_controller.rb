@@ -7,9 +7,9 @@ class AnswersController < ApplicationController
 
     if @answer.save
       flash[:success] = "Answer created!"
-      redirect_to questions_path(@question)
+      redirect_to questions_path
     else
-      @answers = @question.answers.order created_at: :desc
+      @answers = Answer.where(question_id: @question).order created_at: :desc
       render 'questions/show'
     end
   end
@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update answer_params
       flash[:success] = "Answer updated!"
-      redirect_to questions_path(@question)
+      redirect_to questions_path(@question, anchor: "#{@answer.id}")
     else
       render :edit
     end

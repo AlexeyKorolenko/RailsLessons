@@ -3,7 +3,9 @@
 
 <h1 class="bm-4">Questions</h1>
 
-<%= link_to 'New question', new_question_path, class: "btn btn-primary btn-lg" %>
+<%= link_to 'New question', new_question_path, class: "btn btn-primary btn-lg mb-2" %>
+
+<small><%= paginate @questions %></small>
 
 <% @questions.each do |question| %>
   <article class="card mt-3">
@@ -16,7 +18,9 @@
         </time>
 
         <p class="my-2">
-          <%= question.body %>
+<!--          truncate обрезает текст в длинной указаной в length-->
+<!--          omission показывет что писать если текст был обрезан-->
+          <%= truncate strip_tags(question.body), length: 109, omission: '...(continued)' %>
         </p>
       </section>
 
@@ -24,7 +28,8 @@
       <%= link_to 'Edit', edit_question_path(question), class: 'btn btn-secondary' %>
       <%= link_to 'Delete', question_path(question), class: 'btn btn-danger',
                   method: :delete, confirm: 'Are you sure?' %>
-
     </div>
   </article>
 <% end %>
+
+<small><%= paginate @questions %></small>
