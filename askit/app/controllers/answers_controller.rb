@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
 
     if @answer.save
       flash[:success] = "Answer created!"
-      redirect_to questions_path(@question, anchor: dom_id(@answer))
+      redirect_to question_path(@question, anchor: dom_id(@answer))
     else
       @answers = Answer.where(question_id: @question).order created_at: :desc
       render 'questions/show'
@@ -40,10 +40,10 @@ class AnswersController < ApplicationController
   end
 
   def set_question!
-    @question = Question.find_by params[:questions_id]
+    @question = Question.find_by(id: params[:question_id])
   end
 
   def set_answer!
-    @answer = @question.answers.find params[:id]
+    @answer = @question.answers.find(params[:id])
   end
 end

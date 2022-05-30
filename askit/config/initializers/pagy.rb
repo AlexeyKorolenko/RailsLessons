@@ -242,5 +242,5 @@ require 'pagy/extras/bootstrap'
 # Pagy::DEFAULT[:i18n_key] = 'pagy.item_name'   # default
 
 
-# When you are done setting your own default freeze it, so it will not get changed accidentally
+# When you are done stting your own default freeze it, so it will not get changed accidentally
 # Pagy::DEFAULT.freeze

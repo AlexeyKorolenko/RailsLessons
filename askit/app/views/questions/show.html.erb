@@ -21,7 +21,7 @@
 
   <h4>Write your answer</h4>
 
-  <%= render 'answers/form' %>
+  <%= render partial: 'answers/form', locals: {answer: @answer} %>
 
   <h4 class="mt-5">Answers</h4>
 
