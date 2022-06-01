@@ -23,7 +23,9 @@
 
   <%= render partial: 'answers/form', locals: {answer: @answer} %>
 
-  <h4 class="mt-5">Answers</h4>
+  <small class="mb-3"><%= pagination @pagy%></small>
+
+  <h4 class="mt-4 mb-3">Answers</h4>
 
   <%= render partial: 'answers/answer', collection: @answers, as: :answer, locals: {question: @question} %>
 
