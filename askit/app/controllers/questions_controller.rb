@@ -9,12 +9,11 @@ class QuestionsController < ApplicationController
     @answers = @answers.decorate
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @question.update question_params
-      flash[:success] = "Question updated!"
+      flash[:success] = 'Question updated!'
       redirect_to questions_path
     else
       render :edit
@@ -23,7 +22,7 @@ class QuestionsController < ApplicationController
 
   def index
     @pagy, @questions = pagy Question.order(created_at: :desc)
-      # Question.order(created_at: :desc).page(params[:page]).per(10)
+    # Question.order(created_at: :desc).page(params[:page]).per(10)
     @questions = @questions.decorate
   end
 
@@ -34,7 +33,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new question_params
     if @question.save
-      flash[:success] = "Question created!"
+      flash[:success] = 'Question created!'
       redirect_to questions_path
     else
       render :new
@@ -42,9 +41,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    #@question = Question.find_by id: params[:id]
+    # @question = Question.find_by id: params[:id]
     @question.destroy
-    flash[:success] = "Question deleted!"
+    flash[:success] = 'Question deleted!'
     redirect_to questions_path
   end
 

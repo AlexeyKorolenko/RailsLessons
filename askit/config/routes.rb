@@ -9,4 +9,3 @@ Rails.application.routes.draw do
   # index - метод который будет отвечать на запрос
   root 'pages#index'
 end
-
